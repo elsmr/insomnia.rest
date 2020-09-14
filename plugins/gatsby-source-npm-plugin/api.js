@@ -278,12 +278,17 @@ async function fetch(query, allowDeprecated, filter, offset, size) {
 }
 
 module.exports = {
-  getPackages: async function(
+  getPackages: async function (
     query,
     { filter, allowDeprecated = false, perFetch = 20 }
   ) {
     let results = await fetch(query, allowDeprecated, filter, 0, perFetch);
     let pages = Math.ceil(results.totalResults / perFetch);
+
+    if (process.env.NODE_ENV === 'development') {
+      pages = 1
+    }
+
     let page = 0;
 
     while (page < pages) {

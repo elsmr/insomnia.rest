@@ -47,7 +47,7 @@ export default ({
         return tsB - tsA;
       })
       .map(({ node: { childMarkdownRemark: { frontmatter, excerpt } } }) => (
-        <article key={frontmatter.slug} className="article--preview container">
+        <article key={`${frontmatter.app}@${frontmatter.slug}`} className="article--preview container">
           <header className="row">
             <div className="col-12">
               <ChangelogLink frontmatter={frontmatter}>
