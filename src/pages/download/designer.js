@@ -49,7 +49,7 @@ export default class extends React.Component {
                   <i className="platform-download__icon apple" />
                   <p>
                     <Link to={coreMacLink} className="button">
-                      <DownloadIcon /> OS X 10.9+
+                      <DownloadIcon /> macOS 10.12+
                     </Link>
                   </p>
                   <p
