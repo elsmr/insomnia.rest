@@ -48,7 +48,14 @@ export default class extends React.Component {
                 <div className="col-4 platform-download padding-bottom">
                   <i className="platform-download__icon apple" />
                   <p>
-                    <Link to={coreMacLink} className="button">
+                    <Link
+                      to={coreMacLink}
+                      event={{
+                        category: `Download (Insomnia Designer)`,
+                        action: `Mac`,
+                        label: `Insomnia Designer for Mac`
+                      }}
+                      className="button">
                       <DownloadIcon /> macOS 10.12+
                     </Link>
                   </p>
@@ -61,7 +68,14 @@ export default class extends React.Component {
                 <div className="col-4 platform-download padding-bottom">
                   <i className="platform-download__icon windows" />
                   <p>
-                    <Link to={coreWinLink} className="button">
+                    <Link
+                      to={coreWinLink}
+                      event={{
+                        category: `Download (Insomnia Designer)`,
+                        action: `Windows`,
+                        label: `Insomnia Designer for Windows`
+                      }}
+                      className="button">
                       <DownloadIcon /> Windows 7+
                     </Link>
                   </p>
@@ -74,7 +88,14 @@ export default class extends React.Component {
                 <div className="col-4 platform-download padding-bottom">
                   <i className="platform-download__icon linux bg-linux" />
                   <p>
-                    <Link to={coreLinuxLink} className="button">
+                    <Link
+                      to={coreLinuxLink}
+                      event={{
+                        category: `Download (Insomnia Designer)`,
+                        action: `Linux`,
+                        label: `Insomnia Designer for Linux`
+                      }}
+                      className="button">
                       <DownloadIcon /> Ubuntu 14.04+
                     </Link>
                   </p>
@@ -83,7 +104,13 @@ export default class extends React.Component {
                     style={{ maxWidth: '12rem', margin: 'auto' }}>
                     or <code>sudo snap install insomnia-designer</code>
                     or view&nbsp;
-                    <Link to="https://support.insomnia.rest/article/90-installation#linux">
+                    <Link
+                      to="https://support.insomnia.rest/article/90-installation#linux"
+                      event={{
+                        category: `Download (Insomnia Designer)`,
+                        action: `Linux (Other)`,
+                        label: `Insomnia Designer for Linux (Other Methods)`
+                      }}>
                       other methods
                     </Link>
                   </p>

@@ -9,7 +9,7 @@ export default class extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      ref: '',
+      ref: ''
     };
   }
 
@@ -51,7 +51,14 @@ export default class extends React.Component {
                 <div className="col-4 platform-download padding-bottom">
                   <i className="platform-download__icon apple" />
                   <p>
-                    <Link to={coreMacLink} className="button">
+                    <Link
+                      to={coreMacLink}
+                      event={{
+                        category: `Download (Insomnia Core)`,
+                        action: `Mac`,
+                        label: `Insomnia Core for Mac`
+                      }}
+                      className="button">
                       <DownloadIcon /> macOS 10.12+
                     </Link>
                   </p>
@@ -64,7 +71,14 @@ export default class extends React.Component {
                 <div className="col-4 platform-download padding-bottom">
                   <i className="platform-download__icon windows" />
                   <p>
-                    <Link to={coreWinLink} className="button">
+                    <Link
+                      to={coreWinLink}
+                      event={{
+                        category: `Download (Insomnia Core)`,
+                        action: `Windows`,
+                        label: `Insomnia Core for Windows`
+                      }}
+                      className="button">
                       <DownloadIcon /> Windows 7+
                     </Link>
                   </p>
@@ -77,7 +91,14 @@ export default class extends React.Component {
                 <div className="col-4 platform-download padding-bottom">
                   <i className="platform-download__icon linux bg-linux" />
                   <p>
-                    <Link to={coreLinuxLink} className="button">
+                    <Link
+                      to={coreLinuxLink}
+                      event={{
+                        category: `Download (Insomnia Core)`,
+                        action: `Linux`,
+                        label: `Insomnia Core for Linux`
+                      }}
+                      className="button">
                       <DownloadIcon /> Ubuntu 14.04+
                     </Link>
                   </p>
@@ -86,7 +107,13 @@ export default class extends React.Component {
                     style={{ maxWidth: '12rem', margin: 'auto' }}>
                     or <code>sudo snap install insomnia</code>
                     or view&nbsp;
-                    <Link to="https://support.insomnia.rest/article/23-installation#linux">
+                    <Link
+                      to="https://support.insomnia.rest/article/23-installation#linux"
+                      event={{
+                        category: `Download (Insomnia Core)`,
+                        action: `Linux (Other)`,
+                        label: `Insomnia Core for Linux (Other Methods)`
+                      }}>
                       other methods
                     </Link>
                   </p>
