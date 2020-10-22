@@ -56,7 +56,7 @@ class DirectDownloadButton extends React.Component {
       download.platformName = 'Windows';
       download.link = LINKS[app].win;
     } else {
-      download.platform = 'Unknown';
+      download.platformName = 'Unknown';
       download.link = LINKS[app].other;
     }
 
