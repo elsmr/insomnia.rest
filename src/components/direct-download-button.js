@@ -5,16 +5,16 @@ import Link from './link';
 const LINKS = {
   'com.insomnia.app': {
     mac:
-      'https://updates.insomnia.rest/downloads/mac/latest?app=com.insomnia.app',
+      'https://updates.insomnia.rest/downloads/mac/latest?app=com.insomnia.app&source=website',
     win:
-      'https://updates.insomnia.rest/downloads/windows/latest?app=com.insomnia.app',
+      'https://updates.insomnia.rest/downloads/windows/latest?app=com.insomnia.app&source=website',
     other: '/download/core/?'
   },
   'com.insomnia.designer': {
     mac:
-      'https://updates.insomnia.rest/downloads/mac/latest?app=com.insomnia.designer',
+      'https://updates.insomnia.rest/downloads/mac/latest?app=com.insomnia.designer&source=website',
     win:
-      'https://updates.insomnia.rest/downloads/windows/latest?app=com.insomnia.designer',
+      'https://updates.insomnia.rest/downloads/windows/latest?app=com.insomnia.designer&source=website',
     other: '/download/designer/?'
   }
 };

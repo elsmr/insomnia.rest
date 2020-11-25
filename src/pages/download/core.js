@@ -21,9 +21,9 @@ export default class extends React.Component {
   render() {
     const { ref } = this.state;
 
-    const coreMacLink = `https://updates.insomnia.rest/downloads/mac/latest?ref=${ref}&app=com.insomnia.app`;
-    const coreWinLink = `https://updates.insomnia.rest/downloads/windows/latest?ref=${ref}&app=com.insomnia.app`;
-    const coreLinuxLink = `https://updates.insomnia.rest/downloads/ubuntu/latest?ref=${ref}&app=com.insomnia.app`;
+    const coreMacLink = `https://updates.insomnia.rest/downloads/mac/latest?ref=${ref}&app=com.insomnia.app&source=website`;
+    const coreWinLink = `https://updates.insomnia.rest/downloads/windows/latest?ref=${ref}&app=com.insomnia.app&source=website`;
+    const coreLinuxLink = `https://updates.insomnia.rest/downloads/ubuntu/latest?ref=${ref}&app=com.insomnia.app&source=website`;
 
     return (
       <React.Fragment>
