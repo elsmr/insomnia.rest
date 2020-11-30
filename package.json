@@ -19,7 +19,6 @@
   },
   "dependencies": {
     "@loadable/component": "^5.13.1",
-    "@prosperstack/flow": "^0.10.2",
     "axios": "^0.19.2",
     "classnames": "^2.2.5",
     "gatsby": "^2.21.5",
