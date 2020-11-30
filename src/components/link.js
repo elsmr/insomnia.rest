@@ -1,6 +1,5 @@
 import React from 'react';
 import GLink from 'gatsby-link';
-import { trackCustomEvent } from 'gatsby-plugin-google-analytics';
 
 const Link = ({ children, to, ...props }) => {
   let addedProps = {};
@@ -8,12 +7,11 @@ const Link = ({ children, to, ...props }) => {
   if (
     !props.onClick &&
     props.event &&
-    props.event.category &&
-    props.event.action &&
-    props.event.label
+    props.event.event &&
+    props.event.properties
   ) {
     addedProps.onClick = () => {
-      trackCustomEvent(props.event);
+      window.analytics && window.analytics.track(props.event.event, props.event.properties);
     };
   }
 

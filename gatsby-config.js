@@ -112,13 +112,12 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: 'gatsby-plugin-segment-js',
       options: {
-        trackingId: 'UA-8499472-33',
-        head: false,
-        anonymize: true,
-        respectDNT: true,
-        pageTransitionDelay: 0
+        prodKey: 'eqIeHoa1lca59RxSJxVkX4KZcjkCiOxk',
+        devKey: 'ElyV0mC4kgulsMKddO4CmcOn4MQeVFFb',
+        trackPage: true,
+        trackPageDelay: 0
       }
     }
   ]

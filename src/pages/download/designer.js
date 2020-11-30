@@ -51,9 +51,15 @@ export default class extends React.Component {
                     <Link
                       to={coreMacLink}
                       event={{
-                        category: `Download (Insomnia Designer)`,
-                        action: `Mac`,
-                        label: `Insomnia Designer for Mac`
+                        event: `App Download`,
+                        properties: {
+                          app: 'Insomnia Designer',
+                          platform: 'Mac',
+
+                          // For GA
+                          category: `Download (Insomnia Designer)`,
+                          label: `Insomnia Designer for Mac`
+                        }
                       }}
                       className="button">
                       <DownloadIcon /> macOS 10.12+
@@ -71,9 +77,15 @@ export default class extends React.Component {
                     <Link
                       to={coreWinLink}
                       event={{
-                        category: `Download (Insomnia Designer)`,
-                        action: `Windows`,
-                        label: `Insomnia Designer for Windows`
+                        event: `App Download`,
+                        properties: {
+                          app: 'Insomnia Designer',
+                          platform: 'Windows',
+
+                          // For GA
+                          category: `Download (Insomnia Designer)`,
+                          label: `Insomnia Designer for Windows`
+                        }
                       }}
                       className="button">
                       <DownloadIcon /> Windows 7+
@@ -91,9 +103,15 @@ export default class extends React.Component {
                     <Link
                       to={coreLinuxLink}
                       event={{
-                        category: `Download (Insomnia Designer)`,
-                        action: `Linux`,
-                        label: `Insomnia Designer for Linux`
+                        event: `App Download`,
+                        properties: {
+                          app: 'Insomnia Designer',
+                          platform: 'Linux',
+
+                          // For GA
+                          category: `Download (Insomnia Designer)`,
+                          label: `Insomnia Designer for Linux`
+                        }
                       }}
                       className="button">
                       <DownloadIcon /> Ubuntu 14.04+
@@ -107,9 +125,15 @@ export default class extends React.Component {
                     <Link
                       to="https://support.insomnia.rest/article/90-installation#linux"
                       event={{
-                        category: `Download (Insomnia Designer)`,
-                        action: `Linux (Other)`,
-                        label: `Insomnia Designer for Linux (Other Methods)`
+                        event: `App Download`,
+                        properties: {
+                          app: 'Insomnia Designer',
+                          platform: 'Linux (Other)',
+
+                          // For GA
+                          category: `Download (Insomnia Designer)`,
+                          label: `Insomnia Designer for Linux (Other Methods)`
+                        }
                       }}>
                       other methods
                     </Link>

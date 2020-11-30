@@ -82,9 +82,15 @@ class DirectDownloadButton extends React.Component {
         <Link
           to={`${downloadInfo.link}&ref=${ref}`}
           event={{
-            category: `Download (${appName})`,
-            action: `${downloadInfo.platformName}`,
-            label: message
+            event: `App Download`,
+            properties: {
+              app: `${appName}`,
+              platform: `${downloadInfo.platformName}`,
+
+              // For GA
+              category: `Download (${appName})`,
+              label: message
+            }
           }}
           className={classnames('button', className)}>
           {message}
