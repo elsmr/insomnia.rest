@@ -5,7 +5,7 @@ slug: introducing-grpc
 tags: ["announcement"]
 ---
 
-We're happy to announce the release of gRPC support for Insomnia, now available in the 2020.5 release.
+We're happy to announce the release of gRPC support for Insomnia, now available in the [2020.5](https://insomnia.rest/download/) release.
 
 **With gRPC support, developers can make requests to gRPC backend services just like they can today with REST / GraphQL services from Insomnia.**
 
