@@ -124,9 +124,8 @@ export default ({ data }) => (
             <div className="col-5">
               <h3 className="text-xl">Bi-Directional Streaming Support</h3>
               <p>
-                Create unit tests using JavaScript for your Insomnia debug
-                requests, and run them in app or terminal to ensure your API
-                works as expected.{' '}
+                Define and intiate a gRPC bi-directional stream by sending and
+                recieving multiple messages seamlessly from Insomnia API Client.{' '}
                 <Link to="https://support.insomnia.rest/article/145-grpc#bidirectional-streaming">
                   Learn more &rarr;
                 </Link>

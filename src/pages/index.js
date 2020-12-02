@@ -81,8 +81,8 @@ export default () => (
                 <span>Insomnia Core</span>
               </h3>
               <p>
-                The Desktop API client for REST and GraphQL. Make requests,
-                inspect responses.
+                The Desktop API client for REST, GraphQL and gRPC. Make
+                requests, inspect responses.
               </p>
               <DownloadButton>
                 <img src={iconDownload} className="icon" alt="Download" />{' '}
