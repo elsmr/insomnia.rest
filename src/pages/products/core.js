@@ -155,6 +155,9 @@ export default ({ data }) => (
             <div className="col-6">
               <ul>
                 <li>
+                  <Link to="/grpc/">gRPC</Link> support
+                </li>
+                <li>
                   <Link to="/graphql/">GraphQL</Link> support
                 </li>
                 <li>OAuth 1.0 and 2.0 auth</li>

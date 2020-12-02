@@ -1584,3 +1584,52 @@ body[data-pathname^='/blog'] article > header {
 li[id^='__tabify__-tab-item-'] > a {
   text-decoration: none;
 }
+
+
+.announcement-bar {
+  height: 50px;
+  background: black;
+  * {
+    color: white;
+  }
+  a:hover {
+    color: white;
+  }
+  .col-12 {
+    margin-top: 0;
+    margin-bottom: 0;
+    min-height: 25px;
+    p {
+      font-size: 16px;
+      line-height: 1rem;
+      margin: .7rem 0;
+    }
+  }
+  .badge {
+    background: linear-gradient(90deg, #7400E1 25%, #4000BF 87.5%);
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    padding: 1px 8px;
+    font-weight: bold;
+    font-size: 0.7em;
+    display: inline-flex;
+    margin-right: 5px;
+    text-transform: uppercase;
+    position: relative;
+    top: -2px;
+  }
+}
+
+.badge--new {
+  background: rgba(255,255,255,0.1);
+  border-radius: 5px;
+  color: rgb(255, 255, 255);
+  padding: 1px 8px;
+  font-weight: bold;
+  font-size: 0.7em;
+  display: inline-flex;
+  margin-right: 5px;
+  text-transform: uppercase;
+  position: relative;
+  top: -2px;
+}

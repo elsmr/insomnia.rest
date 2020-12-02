@@ -33,9 +33,11 @@ export default () => (
           <div className="row">
             <div className="col-12">
               <h1 className="font-regular">
-                Design, debug, and test APIs like a <u>human</u>, not a robot.
+                Design, and test APIs like a <u>human</u>, not a robot.
               </h1>
-              <h2 className="font-light">Finally, a workflow you'll love.</h2>
+              <h2 className="font-light">
+                Finally, API workflows you'll love.
+              </h2>
             </div>
           </div>
         </div>
@@ -231,6 +233,10 @@ export default () => (
           <div className="row feature-list">
             <div className="col-6">
               <ul>
+                <li>
+                  <span className="badge--new">New</span>{' '}
+                  <Link to="/grpc/">gRPC</Link> support
+                </li>
                 <li>
                   <Link to="/graphql/">GraphQL</Link> support
                 </li>

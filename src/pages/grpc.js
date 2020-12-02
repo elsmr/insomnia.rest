@@ -1,22 +1,25 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import DownloadButton from '../../components/download-button';
-import SocialCards from '../../components/social-cards';
-import Title from '../../partials/title';
+import DownloadButton from '../components/download-button';
+import SocialCards from '../components/social-cards';
+import Title from '../partials/title';
 import Img from 'gatsby-image';
-import Link from '../../components/link';
-import Companies from '../../partials/companies';
+import Link from '../components/link';
+import Companies from '../partials/companies';
 
-// SVGs
-import iconDownload from '../../assets/icons/icn-download.svg';
-import illustrationDesigner from '../../assets/illustration-insomnia-designer-header.svg';
+// SVGs & Gifs
+import iconDownload from '../assets/icons/icn-download.svg';
+import grpcUnaryGif from '../assets/screens/grpc-unary.gif';
+import grpcClientStreamingGif from '../assets/screens/grpc-client-streaming.gif';
+import grpcServerStreamingGif from '../assets/screens/grpc-server-streaming.gif';
+import grpcBidiGif from '../assets/screens/grpc-bidi.gif';
 
 export default ({ data }) => (
   <React.Fragment>
-    <Title>Insomnia Designer</Title>
+    <Title>gRPC Desktop Client</Title>
     <SocialCards
-      title="Insomnia Designer | The Collaborative Design Platform for APIs"
-      summary="Build APIs that work. The API Design Platform for designing, testing, and managing APIs."
+      title="gRPC + Insomnia | Get Started Today!"
+      summary="Rapidly debug gRPC services with the cross-platform Insomnia API client!"
       isBanner
     />
 
@@ -24,29 +27,26 @@ export default ({ data }) => (
       <div className="container">
         <div className="row">
           <div className="col-7">
-            <h1>Insomnia Designer</h1>
+            <h1>Insomnia + gRPC</h1>
             <p className="subheader">
-              Build APIs that work. Using the collaborative API design platform
-              that enables you to adopt a design-first approach to creating,
-              managing, testing, and deploying your APIs using OpenAPI.
+              <strong>The most advanced API client just learned gRPC.</strong>{' '}
+              Define gRPC service calls along with HTTP, REST and GraphQL, and
+              easily share them across devices and with team members.
             </p>
             <DownloadButton className="button-download">
-              <img src={iconDownload} className="icon" alt="Download" /> Latest
-              Release
-              <span className="badge">New</span>
+              <img src={iconDownload} className="icon" alt="Download" /> Start
+              Free Today!
             </DownloadButton>
             <p className="latest-version">
               <small>
-                <Link to={`/changelog`}>Changelog</Link>
+                <Link to={`https://support.insomnia.rest/article/145-grpc`}>
+                  Documentation &rarr;
+                </Link>
               </small>
             </p>
           </div>
           <div className="col-5">
-            <img
-              className="illustration"
-              src={illustrationDesigner}
-              alt="Designer Illustration"
-            />
+            <Img sizes={data.grpcLogo.childImageSharp.sizes} alt="gRPC Logo" />
           </div>
         </div>
       </div>
@@ -57,12 +57,13 @@ export default ({ data }) => (
         <div className="container container--statement">
           <div className="row text-center">
             <div className="col-12">
-              <h3 className="text-xl">Adopt API Design-First Quickly</h3>
+              <h3 className="text-xl">Design APIs?</h3>
               <p>
-                Start designing, and documenting your APIs using OpenAPI today.
-                Generate requests, deploy gateways, collaborate with Git, and
-                write tests for your CI/CD pipelines like Github Actions with
-                Insomnia Inso.
+                Check out{' '}
+                <strong>
+                  <a href="/products/designer">Insomnia Designer</a>
+                </strong>
+                , and start documenting your APIs using OpenAPI today.
               </p>
             </div>
           </div>
@@ -70,60 +71,89 @@ export default ({ data }) => (
         <div className="container">
           <div className="row row-center-y">
             <div className="col-7">
-              <Img
-                sizes={data.documentsImg.childImageSharp.sizes}
-                alt="Document Listing"
-              />
+              <img src={grpcUnaryGif} alt="gRPC Unary Animation" />
             </div>
             <div className="col-5">
-              <h3 className="text-xl">Manage APIs</h3>
-              <p>Manage all of your API designs in one place.</p>
-            </div>
-          </div>
-          <div className="row row-center-y padding-top">
-            <div className="col-5">
-              <h3 className="text-xl">Design APIs</h3>
+              <h3 className="text-xl">Unary Support</h3>
               <p>
-                Create, edit, preview, lint, debug, and your OpenAPI specs all
-                in one collaborative API editor.
-              </p>
-            </div>
-            <div className="col-7">
-              <Img
-                sizes={data.previewImg.childImageSharp.sizes}
-                alt="Document Listing"
-              />
-            </div>
-          </div>
-          <div className="row row-center-y padding-top">
-            <div className="col-7">
-              <Img
-                sizes={data.generateConfigImg.childImageSharp.sizes}
-                alt="Config Generation"
-              />
-            </div>
-            <div className="col-5">
-              <h3 className="text-xl">Generate Config</h3>
-              <p>
-                Generate your API Gateway configuration based on your OpenAPI
-                specifications.
+                Define and send gRPC calls directly from Insomnia just like you
+                would REST, or GraphQL requests.{' '}
+                <Link to="https://support.insomnia.rest/article/145-grpc#unary">
+                  Learn more &rarr;
+                </Link>
               </p>
             </div>
           </div>
           <div className="row row-center-y padding-top">
             <div className="col-5">
-              <h3 className="text-xl">Write Tests</h3>
+              <h3 className="text-xl">Client Streaming Support</h3>
+              <p>
+                Define and intiate a gRPC client stream by sending multiple
+                messages directly from Insomnia to your gRPC services.{' '}
+                <Link to="https://support.insomnia.rest/article/145-grpc#client-streaming">
+                  Learn more &rarr;
+                </Link>
+              </p>
+            </div>
+            <div className="col-7">
+              <img
+                src={grpcClientStreamingGif}
+                alt="gRPC Client Streaming Animation"
+              />
+            </div>
+          </div>
+          <div className="row row-center-y padding-top">
+            <div className="col-7">
+              <img
+                src={grpcServerStreamingGif}
+                alt="gRPC Server Streaming Animation"
+              />
+            </div>
+            <div className="col-5">
+              <h3 className="text-xl">Server Streaming Support</h3>
+              <p>
+                Define and intiate a gRPC server stream by sending and recieving
+                multiple messages directly from Insomnia API Client.{' '}
+                <Link to="https://support.insomnia.rest/article/145-grpc#server-streaming">
+                  Learn more &rarr;
+                </Link>
+              </p>
+            </div>
+          </div>
+          <div className="row row-center-y padding-top">
+            <div className="col-5">
+              <h3 className="text-xl">Bi-Directional Streaming Support</h3>
               <p>
                 Create unit tests using JavaScript for your Insomnia debug
                 requests, and run them in app or terminal to ensure your API
-                works as expected.
+                works as expected.{' '}
+                <Link to="https://support.insomnia.rest/article/145-grpc#bidirectional-streaming">
+                  Learn more &rarr;
+                </Link>
               </p>
             </div>
             <div className="col-7">
-              <Img
-                sizes={data.writeTestsImg.childImageSharp.sizes}
-                alt="Config Generation"
+              <img
+                src={grpcBidiGif}
+                alt="gRPC Bi-Directional Streaming Animation"
               />
+            </div>
+          </div>
+          <div className="row row-center-y padding-top">
+            <div className="col-7">
+              <Img
+                sizes={data.grpcTlsSupport.childImageSharp.sizes}
+                alt="gRPC TLS Support"
+              />
+            </div>
+            <div className="col-5">
+              <h3 className="text-xl">TLS Support</h3>
+              <p>
+                Make calls against gRPC services secured by SSL / TLS.{' '}
+                <Link to="https://support.insomnia.rest/article/145-grpc#tls">
+                  Learn more &rarr;
+                </Link>
+              </p>
             </div>
           </div>
         </div>
@@ -220,92 +250,18 @@ export default ({ data }) => (
 );
 
 export const pageQuery = graphql`
-  query GatsbyImageQueryDesigner {
-    mainImg: file(relativePath: { eq: "screens/main.png" }) {
+  query GatsbyImageQueryGrpc {
+    grpcTlsSupport: file(relativePath: { eq: "screens/grpc-tls-support.png" }) {
       childImageSharp {
         sizes(maxWidth: 880) {
           ...GatsbyImageSharpSizes_withWebp
         }
       }
     }
-    mainImg: file(relativePath: { eq: "screens/main.png" }) {
-      childImageSharp {
-        sizes(maxWidth: 880) {
-          ...GatsbyImageSharpSizes_withWebp
-        }
-      }
-    }
-    templateImg: file(relativePath: { eq: "screens/template.png" }) {
-      childImageSharp {
-        sizes(maxWidth: 250) {
-          ...GatsbyImageSharpSizes_withWebp_tracedSVG
-        }
-      }
-    }
-    responsesImg: file(relativePath: { eq: "screens/responses.png" }) {
-      childImageSharp {
-        sizes(maxWidth: 250) {
-          ...GatsbyImageSharpSizes_withWebp_tracedSVG
-        }
-      }
-    }
-    dragImg: file(relativePath: { eq: "screens/drag.png" }) {
-      childImageSharp {
-        sizes(maxWidth: 250) {
-          ...GatsbyImageSharpSizes_withWebp_tracedSVG
-        }
-      }
-    }
-    previewImg: file(relativePath: { eq: "screens/big/preview.png" }) {
+    grpcLogo: file(relativePath: { eq: "screens/grpc-horizontal-color.png" }) {
       childImageSharp {
         sizes(maxWidth: 800) {
           ...GatsbyImageSharpSizes_tracedSVG
-        }
-      }
-    }
-    documentsImg: file(relativePath: { eq: "screens/big/documents.png" }) {
-      childImageSharp {
-        sizes(maxWidth: 800) {
-          ...GatsbyImageSharpSizes_tracedSVG
-        }
-      }
-    }
-    generateConfigImg: file(
-      relativePath: { eq: "screens/big/generate_config.png" }
-    ) {
-      childImageSharp {
-        sizes(maxWidth: 800) {
-          ...GatsbyImageSharpSizes_tracedSVG
-        }
-      }
-    }
-    writeTestsImg: file(relativePath: { eq: "screens/big/unit_testing.png" }) {
-      childImageSharp {
-        sizes(maxWidth: 800) {
-          ...GatsbyImageSharpSizes_tracedSVG
-        }
-      }
-    }
-    environmentsImg: file(
-      relativePath: { eq: "screens/big/environments.png" }
-    ) {
-      childImageSharp {
-        sizes(maxWidth: 400) {
-          ...GatsbyImageSharpSizes_withWebp_tracedSVG
-        }
-      }
-    }
-    codeImg: file(relativePath: { eq: "screens/big/code.png" }) {
-      childImageSharp {
-        sizes(maxWidth: 400) {
-          ...GatsbyImageSharpSizes_withWebp_tracedSVG
-        }
-      }
-    }
-    themesImg: file(relativePath: { eq: "screens/big/themes.png" }) {
-      childImageSharp {
-        sizes(maxWidth: 400) {
-          ...GatsbyImageSharpSizes_withWebp_tracedSVG
         }
       }
     }

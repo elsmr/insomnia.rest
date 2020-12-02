@@ -8,6 +8,9 @@ import { isLoggedIn } from '../lib/session';
 import { site } from '../config';
 import { parse as urlParse } from 'url';
 
+import Link from '../components/link';
+import AnnouncementBar from '../components/announcement-bar';
+
 export default class extends React.Component {
   state = {
     isLoggedIn: false
@@ -48,6 +51,11 @@ export default class extends React.Component {
           <meta name="description" content={site && site.description} />
           <body data-pathname={location.pathname} />
         </Helmet>
+        <AnnouncementBar>
+          <Link to="/blog/introducing-grpc">
+            Announcing gRPC Support for Insomnia &rarr;
+          </Link>
+        </AnnouncementBar>
         <Navbar loggedIn={isLoggedIn} />
         <main role="main">{children}</main>
         <Footer />
