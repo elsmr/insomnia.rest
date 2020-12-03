@@ -426,7 +426,7 @@ export async function changeTeamName(teamId, name) {
 }
 
 export async function listTeams() {
-  return util.get('/api/teams/');
+  return util.get('/api/teams');
 }
 
 
