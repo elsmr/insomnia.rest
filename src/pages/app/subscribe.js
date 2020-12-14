@@ -9,13 +9,17 @@ const planTypePlus = 'plus';
 const planCycleMonthly = 'monthly';
 const planCycleYearly = 'yearly';
 const minTeamSize = 2;
-const pricePerMember = 8;
+
+const pricePerMember = 12;
+const oldPricePerMember = 8;
 
 const planIdMap = {
-  'plus-monthly-1': [planTypePlus, planCycleMonthly, 1],
-  'plus-yearly-1': [planTypePlus, planCycleYearly, 1],
-  'team-monthly-1': [planTypeTeam, planCycleMonthly, 5],
-  'team-yearly-1': [planTypeTeam, planCycleYearly, 5]
+  'plus-monthly-1': [planTypePlus, planCycleMonthly],
+  'plus-yearly-1': [planTypePlus, planCycleYearly],
+  'team-monthly-1': [planTypeTeam, planCycleMonthly],
+  'team-yearly-1': [planTypeTeam, planCycleYearly],
+  'team-monthly-2': [planTypeTeam, planCycleMonthly],
+  'team-yearly-2': [planTypeTeam, planCycleYearly]
 };
 
 class Subscribe extends React.Component {
@@ -31,14 +35,20 @@ class Subscribe extends React.Component {
 
     let planDescription;
     if (window.location.hash === '#teams') {
-      planDescription = planIdMap['team-monthly-1'];
+      planDescription = planIdMap['team-monthly-2'];
     } else if (window.location.hash === '#plus') {
-      planDescription = planIdMap['plus-monthly-1'];
+      planDescription = planIdMap['plus-monthly-2'];
     } else {
       planDescription = planIdMap[whoami.planId];
     }
 
     const fullName = `${whoami.firstName} ${whoami.lastName}`.trim();
+
+    // Only use the old price for users with an existing active teams subscription
+    const useOldTeamsPrice =
+      billingDetails &&
+      (billingDetails.planId === 'team-monthly-1' || billingDetails.planId === 'team-yearly-1') &&
+      !billingDetails.subCancelled
 
     this.state = {
       loading: false,
@@ -54,6 +64,7 @@ class Subscribe extends React.Component {
       zip: '',
       error: '',
       memo: billingDetails ? billingDetails.subMemo : '',
+      useOldTeamsPrice: useOldTeamsPrice,
     };
   }
 
@@ -168,6 +179,7 @@ class Subscribe extends React.Component {
       planCycle,
       memo,
       quantity: quantityRaw,
+      useOldTeamsPrice,
     } = this.state;
 
     if (!useExistingBilling && !fullName.trim()) {
@@ -198,7 +210,10 @@ class Subscribe extends React.Component {
 
     const teamSize = Math.max(minTeamSize, quantityRaw);
     const quantity = planType === planTypePlus ? 1 : teamSize;
-    const planId = `${planType}-${planCycle}-1`;
+    const planId =
+      planType === planTypePlus?
+      `${planType}-${planCycle}-1` :
+      `${planType}-${planCycle}-${useOldTeamsPrice ? '1' : '2'}`;
 
     const d = new Date();
     const subErrorKey = `subErrors_${d.getFullYear()}-${d.getMonth()}-${d.getDay()}`;
@@ -239,20 +254,21 @@ class Subscribe extends React.Component {
     }
   }
 
-  static _calculatePrice (planType, planCycle, quantity) {
+  static _calculatePrice (planType, planCycle, quantity, useOldTeamsPrice) {
     quantity = Math.max(quantity, minTeamSize);
     const priceIndex = planCycle === planCycleMonthly ? 0 : 1;
+    const memberPrice = useOldTeamsPrice ? oldPricePerMember : pricePerMember;
     const price =
       planType === planTypePlus
         ? [5, 50]
-        : [pricePerMember * quantity, pricePerMember * 10 * quantity];
+        : [memberPrice * quantity, memberPrice * 10 * quantity];
 
     return price[priceIndex];
   }
 
-  static _getPlanDescription (planType, planCycle, quantity) {
+  static _getPlanDescription (planType, planCycle, quantity, useOldTeamsPrice) {
     const cycle = planCycle === planCycleMonthly ? 'month' : 'year';
-    const price = Subscribe._calculatePrice(planType, planCycle, quantity);
+    const price = Subscribe._calculatePrice(planType, planCycle, quantity, useOldTeamsPrice);
 
     return `$${price} / ${cycle}`;
   }
@@ -291,6 +307,7 @@ class Subscribe extends React.Component {
       useExistingBilling,
       fullName,
       memo,
+      useOldTeamsPrice,
     } = this.state;
 
     const {billingDetails} = this.props;
@@ -313,7 +330,7 @@ class Subscribe extends React.Component {
         <React.Fragment>
           <button type="submit" className="button">
             Change to {' '}
-            {Subscribe._getPlanDescription(planType, planCycle, quantity)}
+            {Subscribe._getPlanDescription(planType, planCycle, quantity, useOldTeamsPrice)}
           </button>
           <p className="text-xs subtle">
             *Upgrades are billed immediately and downgrades will apply
@@ -325,7 +342,7 @@ class Subscribe extends React.Component {
       subscribeBtn = (
         <button type="submit" className="button">
           Subscribe for{' '}
-          {Subscribe._getPlanDescription(planType, planCycle, quantity)}
+          {Subscribe._getPlanDescription(planType, planCycle, quantity, useOldTeamsPrice)}
         </button>
       );
     }
@@ -378,7 +395,7 @@ class Subscribe extends React.Component {
                 onChange={this._handleUpdateInput.bind(this)}
                 value={planCycleMonthly}
               />
-              {Subscribe._getPlanDescription(planType, planCycleMonthly, quantity)}
+              {Subscribe._getPlanDescription(planType, planCycleMonthly, quantity, useOldTeamsPrice)}
             </label>
           </div>
           <div className="form-control">
@@ -390,7 +407,7 @@ class Subscribe extends React.Component {
                 onChange={this._handleUpdateInput.bind(this)}
                 value={planCycleYearly}
               />
-              {Subscribe._getPlanDescription(planType, planCycleYearly, quantity)}
+              {Subscribe._getPlanDescription(planType, planCycleYearly, quantity, useOldTeamsPrice)}
             </label>
           </div>
         </div>

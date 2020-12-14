@@ -87,9 +87,9 @@ export default () => (
           </header>
           <div className="pricing__column__body">
             <h2>
-              $8 / user / month
+              $12 / user / month
               <br />
-              <span className="subtle small">or $80 / user / year</span>
+              <span className="subtle small">or $120 / user / year</span>
               <br />
             </h2>
             <ul>
