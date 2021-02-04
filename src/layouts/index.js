@@ -52,8 +52,8 @@ export default class extends React.Component {
           <body data-pathname={location.pathname} />
         </Helmet>
         <AnnouncementBar>
-          <Link to="/blog/introducing-grpc">
-            Announcing gRPC Support for Insomnia &rarr;
+          <Link to="/blog/sunsetting-legacy-sync/">
+            Legacy Sync is going away! &rarr;
           </Link>
         </AnnouncementBar>
         <Navbar loggedIn={isLoggedIn} />

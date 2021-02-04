@@ -8,7 +8,7 @@ export default function AnnouncementBar(props) {
         <div className="row">
           <div className="col-12">
             <p>
-              <span className="badge">New</span> {props.children}
+              <span className="badge">Notice</span> {props.children}
             </p>
           </div>
         </div>
