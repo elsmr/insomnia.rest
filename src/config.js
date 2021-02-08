@@ -33,16 +33,9 @@ export const menus = {
     ],
     right: [
       {
-        name: 'Account',
-        key: 'account',
-        url: '/app/account/',
-        loggedIn: true
-      },
-      {
         name: 'Login',
         key: 'login',
-        url: '/app/login/',
-        loggedIn: false
+        url: 'https://app.insomnia.rest/app/login/',
       }
     ]
   },

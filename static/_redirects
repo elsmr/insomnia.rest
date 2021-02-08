@@ -21,7 +21,7 @@
 /contact/                                                        /support/
 /eula/                                                           https://github.com/Kong/insomnia/blob/master/LICENSE
 /license/                                                        https://github.com/Kong/insomnia/blob/master/LICENSE
-/app/                                                            /app/account/
+/app/*                                                           https://app.insomnia.rest/app/:splat
 /transparency/                                                   /open/
 
 # Updated Changelogs

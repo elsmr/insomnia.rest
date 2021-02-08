@@ -4,9 +4,7 @@ import { site, menus } from '../config';
 import iconSrc from '../assets/logos/logo-32x--insomnia-core.svg';
 
 class Navbar extends React.Component {
-  static defaultProps = {
-    loggedIn: false
-  };
+  static defaultProps = {};
 
   render() {
     return (
@@ -26,13 +24,6 @@ class Navbar extends React.Component {
 
               <ul className="navbar__items navbar__items-center">
                 {menus.header.center
-                  .filter(({ loggedIn }) => {
-                    if (typeof loggedIn !== 'boolean') {
-                      return true;
-                    }
-
-                    return loggedIn === this.props.loggedIn;
-                  })
                   .map(item => (
                     <li key={item.key} data-menu-item={item.key}>
                       <Link to={item.url}>{item.name}</Link>
@@ -42,20 +33,12 @@ class Navbar extends React.Component {
 
               <ul className="navbar__items">
                 {menus.header.right
-                  .filter(({ loggedIn }) => {
-                    if (typeof loggedIn !== 'boolean') {
-                      return true;
-                    }
-
-                    return loggedIn === this.props.loggedIn;
-                  })
                   .map(item => (
                     <li key={item.key} data-menu-item={item.key}>
                       <Link to={item.url}>{item.name}</Link>
                     </li>
                   ))}
 
-                {!this.props.loggedIn && (
                   <li data-menu-item="download">
                     <div>
                       <Link to={'/pricing'} className="button">
@@ -63,7 +46,6 @@ class Navbar extends React.Component {
                       </Link>
                     </div>
                   </li>
-                )}
               </ul>
             </div>
           </div>

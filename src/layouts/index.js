@@ -4,7 +4,6 @@ import './styles/index.less';
 import Navbar from '../partials/navbar';
 import Footer from '../partials/footer';
 import Title from '../partials/title';
-import { isLoggedIn } from '../lib/session';
 import { site } from '../config';
 import { parse as urlParse } from 'url';
 
@@ -12,12 +11,9 @@ import Link from '../components/link';
 import AnnouncementBar from '../components/announcement-bar';
 
 export default class extends React.Component {
-  state = {
-    isLoggedIn: false
-  };
+  state = {};
 
   componentDidMount() {
-    this.setState({ isLoggedIn: isLoggedIn() });
     this.trackSignupSource();
   }
 
@@ -43,7 +39,6 @@ export default class extends React.Component {
 
   render() {
     const { children, location } = this.props;
-    const { isLoggedIn } = this.state;
     return (
       <React.Fragment>
         <Title />
@@ -56,7 +51,7 @@ export default class extends React.Component {
             Legacy Sync is going away! &rarr;
           </Link>
         </AnnouncementBar>
-        <Navbar loggedIn={isLoggedIn} />
+        <Navbar />
         <main role="main">{children}</main>
         <Footer />
       </React.Fragment>

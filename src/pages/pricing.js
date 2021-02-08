@@ -75,7 +75,7 @@ export default () => (
             </ul>
           </div>
           <footer className="pricing__column__footer">
-            <Link to="/app/subscribe/#plus" className="button">
+            <Link to="https://app.insomnia.rest/app/subscribe/#plus" className="button">
               Start Free Trial
             </Link>
           </footer>
@@ -108,7 +108,7 @@ export default () => (
             </ul>
           </div>
           <footer className="pricing__column__footer">
-            <Link to="/app/subscribe/#teams" className="button">
+            <Link to="https://app.insomnia.rest/app/subscribe/#teams" className="button">
               Start Free Trial
             </Link>
           </footer>
