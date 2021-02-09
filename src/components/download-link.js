@@ -32,7 +32,7 @@ class DownloadButton extends React.Component {
       platformName = 'Windows';
       href = '/download/#windows';
     } else if (platform.indexOf('linux') !== -1) {
-      platformName = 'Linux';
+      platformName = 'Ubuntu';
       href = '/download/#linux';
     }
 

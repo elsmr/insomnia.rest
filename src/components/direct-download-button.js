@@ -8,7 +8,7 @@ const LINKS = {
       'https://updates.insomnia.rest/downloads/mac/latest?app=com.insomnia.app&source=website',
     win:
       'https://updates.insomnia.rest/downloads/windows/latest?app=com.insomnia.app&source=website',
-    linux:
+    ubuntu:
       'https://updates.insomnia.rest/downloads/ubuntu/latest?app=com.insomnia.app&source=website',
     other: '/download/core/?'
   },
@@ -17,7 +17,7 @@ const LINKS = {
       'https://updates.insomnia.rest/downloads/mac/latest?app=com.insomnia.designer&source=website',
     win:
       'https://updates.insomnia.rest/downloads/windows/latest?app=com.insomnia.designer&source=website',
-    linux:
+    ubuntu:
       'https://updates.insomnia.rest/downloads/ubuntu/latest?app=com.insomnia.app&source=website',
     other: '/download/designer/?'
   }
@@ -60,10 +60,10 @@ class DirectDownloadButton extends React.Component {
       download.platformName = 'Windows';
       download.link = LINKS[app].win;
     } else if (platform.indexOf('linux') !== -1) {
-      download.platformName = "Linux";
-      download.link = LINKS[app].linux;
+      download.platformName = 'Ubuntu';
+      download.link = LINKS[app].ubuntu;
     } else {
-      download.platformName = 'Unknown';
+      download.platformName = 'Desktop';
       download.link = LINKS[app].other;
     }
 
